@@ -10,3 +10,9 @@ systemctl reload sshd
 echo "Set root password"
 echo -e "admin\nadmin" | passwd root >/dev/null 2>&1
 
+# Set local user account
+echo "Set up local user account"
+useradd -m -s /bin/bash achinnac
+echo -e "admin\nadmin" | passwd achinnac >/dev/null 2>&1
+echo "achinnac ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
