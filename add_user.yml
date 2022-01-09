@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Add the user 'james' with a bash shell, appending the group 'sudo' 
+    ansible.builtin.user:
+      name: james
+      shell: /bin/bash
+      groups: sudo
+      password: $6$xAJ4.B/.paxW6itT$Ddjw/UfsECtyHswjydyVUoIEdwv.Dz2J6sgX2clobzgcZHxqFSjCleC9UFb9d9wLekymAwa034XPY.1pskxbs.
+
+  - name: Add the user 'jay' with a bash shell, appending the group 'sudo' to the user's groups
+    ansible.builtin.user:
+      name: jay
+      shell: /bin/bash
+      groups: sudo
+      ssh_public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOfHhk+A3ma4ID06yM78aCfLClJvundgfsq6bpLrimk3 jay'    
+
+
+
+
